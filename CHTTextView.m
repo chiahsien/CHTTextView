@@ -98,11 +98,14 @@
     attributes[NSForegroundColorAttributeName] = self.placeholderTextColor;
     [self.placeholder drawInRect:rect withAttributes:attributes];
   } else {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     [self.placeholderTextColor set];
     [self.placeholder drawInRect:rect
                         withFont:self.font
                    lineBreakMode:NSLineBreakByWordWrapping
                        alignment:self.textAlignment];
+#pragma clang diagnostic pop
   }
 }
 
